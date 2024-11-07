@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group = 'com.adrian.tema04'
@@ -7,6 +8,10 @@ version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+application{
+    mainClassName = "com.adrian.tema04.manejo_de_fechas.Ejercicio06"
 }
 
 dependencies {

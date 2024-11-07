@@ -11,7 +11,7 @@ public class Ejercicio2 {
     }
 
     /**
-     * contara las vocales que hay en el texto
+     * contara las vocales que hay en el texto-
      * @param texto el texto
      * @return la cantidad de vocales en el texto
      */

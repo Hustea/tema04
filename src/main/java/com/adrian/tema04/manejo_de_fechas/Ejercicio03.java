@@ -1,4 +1,4 @@
-package com.adrian.tema04.manejo_de_fechas;
+/*package com.adrian.tema04.manejo_de_fechas;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -43,7 +43,7 @@ public class Ejercicio3 {
      * @return Devuelve un double con el valor en años de la division
      * entre los dias transcurridos desde la fecha indicada hasta la fecha actual
      * y los dias de años pasados segun el planeta elegido
-     */
+     */ /*
     public static double calculadorPlanetario(LocalDate fechaNacimiento, Planeta planeta){
         long dias =Ejercicio02.calcularEdad(fechaNacimiento);
         float calculo=0;
@@ -59,4 +59,4 @@ public class Ejercicio3 {
         }
         return calculo;
     }
-}
+}*/
