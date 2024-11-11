@@ -13,6 +13,7 @@ public class Ejercicio10 {
      * @return booleano de confirmacion de palindromo
      */
     public static boolean esPalindromo(String palabra) {
+        palabra = palabra.trim();
         int inicio = 0;
         int fin = palabra.length() - 1;
 
