@@ -32,6 +32,7 @@ public class Ejercicio14 {
      */
     public static void mostrarContadorConSustitucion(int numeroASustituir, char letra) {
         Scanner scanner = new Scanner(System.in);
+        int tramite;
         // Validación del dígito a sustituir (debe estar entre 0 y 9)
         if (numeroASustituir < 0 || numeroASustituir > 9) {
             System.out.println("El número a sustituir debe estar entre 0 y 9.");
@@ -52,7 +53,7 @@ public class Ejercicio14 {
                         // Imprime la secuencia con la sustitución aplicada
                         System.out.println(secuenciaConSustitucion);
 
-                        int tramite = scanner.nextInt();
+                        tramite = scanner.nextInt();
                     }
                 }
             }
