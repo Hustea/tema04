@@ -6,8 +6,22 @@ public class Ejercicio14 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int numero = scanner.nextInt();
-        char letra = (char) scanner.nextShort();
+        int numero;
+        char letra;
+
+        do{
+            System.out.println("¿Que numero desea substituir?");
+            numero = scanner.nextInt();
+            if(numero < 0 || numero > 9){
+                System.err.println("Digito, invalido");
+            }
+        }while (numero < 0 || numero > 9);
+
+        System.out.println("¿por que caracter");
+        letra = (char) scanner.nextShort();
+
+        scanner.close();
+
         mostrarContadorConSustitucion(numero, letra);
     }
 
@@ -17,6 +31,7 @@ public class Ejercicio14 {
      * @param letra la letra en cuastion
      */
     public static void mostrarContadorConSustitucion(int numeroASustituir, char letra) {
+        Scanner scanner = new Scanner(System.in);
         // Validación del dígito a sustituir (debe estar entre 0 y 9)
         if (numeroASustituir < 0 || numeroASustituir > 9) {
             System.out.println("El número a sustituir debe estar entre 0 y 9.");
@@ -36,10 +51,13 @@ public class Ejercicio14 {
 
                         // Imprime la secuencia con la sustitución aplicada
                         System.out.println(secuenciaConSustitucion);
+
+                        int tramite = scanner.nextInt();
                     }
                 }
             }
         }
+        scanner.close();
     }
 }
 

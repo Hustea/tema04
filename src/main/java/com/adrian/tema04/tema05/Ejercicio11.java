@@ -64,7 +64,7 @@ public class Ejercicio11 {
         }
         return texto.toUpperCase();
     }
-}
+
 
 /**
  * Devolver la longitud del texto
@@ -77,7 +77,7 @@ public static int longitudTexto(String texto) {
     }
     return texto.length();
 }
-    }
+
 
 /**
  * Devolver los primeros 5 caracteres de un texto
@@ -138,9 +138,9 @@ public static int repeticionesDelUltimoCaracter(String texto) {
  * @param texto
  * @return
  */
-public static String repeticionesDelPrimerCaracter(String texto) {
+public static StringBuilder repeticionesDelPrimerCaracter(String texto) {
     if (texto == null || texto.isEmpty()) {
-        return ""; // Retorna una cadena vacía si el texto es nulo o vacío
+        return null; // Retorna una cadena vacía si el texto es nulo o vacío
     }
 
     char primerCaracter = texto.charAt(0); // Obtiene el primer carácter
