@@ -33,11 +33,6 @@ public class Ejercicio14 {
     public static void mostrarContadorConSustitucion(int numeroASustituir, char letra) {
         Scanner scanner = new Scanner(System.in);
         int tramite;
-        // Validación del dígito a sustituir (debe estar entre 0 y 9)
-        if (numeroASustituir < 0 || numeroASustituir > 9) {
-            System.out.println("El número a sustituir debe estar entre 0 y 9.");
-            return;
-        }
 
         // Recorre las combinaciones de un contador de 4 dígitos
         for (int i = 0; i <= 9; i++) {
