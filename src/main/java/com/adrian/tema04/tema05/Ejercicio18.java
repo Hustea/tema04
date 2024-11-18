@@ -15,7 +15,7 @@ public class Ejercicio18 {
         String fechaNacimiento = String.valueOf(fechaSalida);
 
         // Calcular y mostrar el lucky number
-        int luckyNumber = calcularLuckyNumber(fechaNacimiento);
+        int luckyNumber = calcularLuckyNumber(fechaNacimiento.trim());
         System.out.println("Tu número de la suerte es: " + luckyNumber);
 
         scanner.close();
