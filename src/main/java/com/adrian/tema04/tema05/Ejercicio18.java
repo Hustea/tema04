@@ -27,13 +27,11 @@ public class Ejercicio18 {
      * @return El número de la suerte como un entero de un solo dígito.
      */
     public static int calcularLuckyNumber(String fecha) {
-        // Eliminar caracteres no numéricos (guiones) para obtener solo los dígitos
+        // Eliminar caracteres no numéricos para obtener solo los dígitos
         String soloDigitos = fecha.replace("-", "");
 
-        // Sumar los dígitos de la cadena
         int suma = sumarDigitos(soloDigitos);
 
-        // Reducir la suma a un solo dígito
         while (suma >= 10) {
             suma = sumarDigitos(String.valueOf(suma));
         }
@@ -50,7 +48,6 @@ public class Ejercicio18 {
         int suma = 0;
 
         for (char c : cadena.toCharArray()) {
-            // Convertir cada carácter a su valor numérico
             suma += Character.getNumericValue(c);
         }
 
