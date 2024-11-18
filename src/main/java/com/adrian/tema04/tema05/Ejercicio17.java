@@ -29,7 +29,7 @@ public class Ejercicio17 {
     public static boolean validarNIF(String nif) {
 
         int dni = Integer.parseInt(nif.substring(0, 8));
-        String nif2 = calcularNIF(dni);
+        String nif2 = calcularLetraNIF(dni);
 
         if(nif.equals(nif2)){
             return true;
@@ -43,7 +43,7 @@ public class Ejercicio17 {
      * @param dni
      * @return el nif
      */
-    public static String calcularNIF(int dni) {
+    public static String calcularLetraNIF(int dni) {
         String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
 
         int resto = dni % 23;
