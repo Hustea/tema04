@@ -10,6 +10,8 @@ public class Ejercicio17 {
         System.out.println("Ingrese su NIF con la letra en mayuscula y sin espacios:");
         nif = scanner.nextLine();
 
+        scanner.close();
+
         boolean validar = (validarNIF(nif.trim()));
         if(validar == true){
             System.out.println("Su NIF es valido");
@@ -19,6 +21,11 @@ public class Ejercicio17 {
     }
 
 
+    /**
+     * validar el nif
+     * @param nif
+     * @return boolean de validacion
+     */
     public static boolean validarNIF(String nif) {
 
         int dni = Integer.parseInt(nif.substring(0, 8));
@@ -31,6 +38,11 @@ public class Ejercicio17 {
         }
     }
 
+    /**
+     * calcular la letra del nif
+     * @param dni
+     * @return el nif
+     */
     public static String calcularNIF(int dni) {
         String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
 
