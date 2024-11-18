@@ -1,14 +1,18 @@
 package com.adrian.tema04.tema05;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Ejercicio18 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Solicitar la fecha de nacimiento al usuario
-        System.out.println("Introduce tu fecha de nacimiento en formato dd-mm-aaaa:");
-        String fechaNacimiento = scanner.nextLine();
+        System.out.println("Ingresse su fecha de nacimiento (dd-mm-yyyy):");
+        String fechaStr = scanner.nextLine();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDateTime fechaSalida = LocalDateTime.parse(fechaStr, formatter);
+        String fechaNacimiento = String.valueOf(fechaSalida);
 
         // Calcular y mostrar el lucky number
         int luckyNumber = calcularLuckyNumber(fechaNacimiento);
