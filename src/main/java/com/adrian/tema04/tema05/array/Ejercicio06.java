@@ -15,6 +15,7 @@ public class Ejercicio06 {
         rellenarArray(array2, VALOR_MINIMO, VALOR_MAXIMO);
 
 
+        //El ejeercicio no dice que hagamos nada con estos arrays
         int[] suma = rellenarArrayConSumas(array1, array2);
         double[] division = rellenarArrayConDivision(array1, array2);
     }
