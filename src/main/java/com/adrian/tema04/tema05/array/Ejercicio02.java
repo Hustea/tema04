@@ -1,45 +1,71 @@
 package com.adrian.tema04.tema05.array;
-
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Ejercicio02 {
+    public enum Paridad {
+        PAR, IMPAR
+    }
+    private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        char[] caracteres = new char[10];
-        char caracter;
-        int par = 1;
-        int impar = 2;
-
-        for(int i = 0; i < caracteres.length; i++ ) {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-
-            System.out.println("Ingresa el caracter "+(i+1)+"/10:");
-            caracter = scanner.next().charAt(0);
-            caracteres[i] = caracter;
-        }
+        final int TAMANYO_ARRAY = 10;
+        char[] arrayChar = new char[TAMANYO_ARRAY];
+        solicitarDatosArray(arrayChar);
+        // Para poder realizar pruebas rápidamente podemos utilizar el método rellenarArray
+        // rellenarArray(arrayChar, 'A', 'Z');
+        // Mostramos todos los elementos del Array
+        System.out.println(Arrays.toString(arrayChar));
+        // Mostramos sólo las posiciones PARES
+        System.out.println(arrayToString(arrayChar, Paridad.PAR));
+        // Mostramos sólo las posiciones IMPARES
+        System.out.println(arrayToString(arrayChar, Paridad.IMPAR));
         scanner.close();
-
-        System.out.println("Caracteres en posicion par:");
-        mostrarParImparDeArray(caracteres, par);
-
-        System.out.println("Caracteres en posicion impar:");
-        mostrarParImparDeArray(caracteres, impar);
     }
 
-    /**
-     * Ordenar caracteres en su posicion en un array
-     * @param a array de caracter
-     * @param x par o impar
-     */
-    public static void mostrarParImparDeArray(char[] a, int x) {
-        StringBuilder secuenciaDeCaracteres = new StringBuilder("");
-        for(int i = 0; i < a.length; i++ ) {
-
-            if( (i+ x) % 2 == 0 ) {
-                secuenciaDeCaracteres.append(a[i]+", ");
-            }
+    public static void solicitarDatosArray(char[] array) {
+        if (array == null) {
+            return;
         }
-        System.out.println(secuenciaDeCaracteres);
+        for (int i = 0; i < array.length; i++) {
+            System.out.printf("a[%d]?\n", i);
+            array[i] = scanner.nextLine().charAt(0);
+        }
     }
+
+    // Versión con StringBuilder
+    public static String arrayToString(char[] array, Paridad paridad) {
+        StringBuilder sb = new StringBuilder();
+        int inicio = paridad == Paridad.PAR ? 0 : 1;
+        for (int i = inicio; i < array.length; i += 2) {
+            sb.append(array[i]);
+        }
+        return sb.toString();
+    }
+
+    // Versión generando un nuevo Array
+    /*
+    public static String arrayToString(char[] array, Paridad paridad) {
+        final int NUM_ELEMENTOS = paridad == Paridad.PAR ? array.length / 2 : array.length / 2 + 1;
+        char[] resultado = new char[NUM_ELEMENTOS];
+        int contador = 0;
+        int inicio = paridad == Paridad.PAR ? 0 : 1;
+        for (int i = inicio; i < array.length; i += 2) {
+            resultado[contador++] = array[i];
+        }
+        return Arrays.toString(resultado);
+    }
+     */
+
+    public static void rellenarArray(char[] array, char caracterMinimo, char caracterMaximo) {
+        Random random = new Random();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (char)random.nextInt(caracterMinimo, caracterMaximo);
+        }
+    }
+
 }
+
+
+

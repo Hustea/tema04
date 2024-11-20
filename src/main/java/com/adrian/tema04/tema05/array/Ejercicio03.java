@@ -2,37 +2,59 @@ package com.adrian.tema04.tema05.array;
 
 import java.util.Scanner;
 
+/**
+ * Ejercicio03
+ * License: 🅮 Public Domain
+ *
+ * @author Germán Gascón <ggascon@gmail.com>
+ * @version 0.1, 2024-11-19
+ * @since 0.1, 2024-11-19
+ **/
 public class Ejercicio03 {
+    private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int[] numeros = new int[20];
-        int numero;
+        final int TAMANYO_ARRAY = 20;
+        double[] array = new double[TAMANYO_ARRAY];
+        // Aprovechamos el método para solicitar datos del Ejercicio01
+        Ejercicio01.solicitarDatosArray(array);
+        // Para poder realizar pruebas rápidamente podemos utilizar el método rellenarArray
+        // Ejercicio01.rellenarArray(array, 10, 1000);
 
-        for(int i = 0; i < numeros.length; i++ ) {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-
-            System.out.println("Ingresa el numero "+(i+1)+"/20:");
-            numero = scanner.nextInt();
-            numeros[i] = numero;
-        }
+        System.out.println(arrayToString(array, 4, 4));
         scanner.close();
-
-        ordenarArrayEnTabla(numeros);
-
     }
 
-    /**
-     * ordenar valores de un array en una tabla
-     * @param a el array
-     */
-    public static void ordenarArrayEnTabla(int[] a) {
-        System.out.println("\nNúmeros en una tabla de 4 columnas:");
-        for (int i = 0; i < a.length; i++) {
-            System.out.printf("%-5d", a[i]);
-            if ((i + 1) % 4 == 0) {
-                System.out.println();
+    public static int determinarLongitudMaxima(double[] array, int decimales) {
+        int longitudMaxima = 0;
+        String formato = "%." + decimales + "f";
+        for (double numero : array) {
+            int longitudActual = String.format(formato, numero).length();
+            if (longitudMaxima < longitudActual) {
+                longitudMaxima = longitudActual;
             }
         }
+        return longitudMaxima;
+    }
+
+    public static String arrayToString(double[] array, int decimales, int columnas) {
+        return arrayToString(array, decimales, columnas, 2);
+    }
+
+    public static String arrayToString(double[] array, int decimales, int columnas, int padding) {
+        if (array == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        int tamanyoColumna = determinarLongitudMaxima(array, decimales) + padding;
+        String formato = "%" + tamanyoColumna + "." + decimales + "f";
+        String formatoColumna = "%-" + tamanyoColumna + "s";
+        for (int i = 0; i < array.length; i++) {
+            sb.append(String.format(formatoColumna, String.format(formato, array[i])));
+            if ((i + 1) % columnas == 0) {
+                sb.append("\n");
+            }
+        }
+        return sb.toString();
     }
 }
