@@ -87,7 +87,6 @@ public class Ejercicio13 {
 
                 j++;
             }
-
         }
         return s;
     }
