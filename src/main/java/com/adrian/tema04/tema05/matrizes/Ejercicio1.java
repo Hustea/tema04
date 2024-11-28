@@ -33,9 +33,9 @@ public class Ejercicio1 {
      * @param matriz la matriz en cuestion
      */
     public static void rellenarMatriz(float[][] matriz){
-        for(int i = 0; i < matriz[0].length; i++){
+        for(int i = 0; i < matriz.length; i++){
             for(int j = 0; j < matriz[1].length; j++){
-                System.out.println("Dato de la fila "+(i+1)+"/"+matriz[0].length+" y la columna "+(j+1)+"/"+matriz[1].length+":");
+                System.out.println("Dato de la fila "+(i+1)+"/"+matriz.length+" y la columna "+(j+1)+"/"+matriz[1].length+":");
                 matriz[i][j] = scanner.nextFloat();
             }
         }
